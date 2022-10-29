@@ -3,32 +3,28 @@
  * @return {boolean}
  */
 var judgeCircle = function(moves) {
+  let x= 0;
+  let y= 0;
     
-    const robot = {
-  x: 0,
-  y: 0,
-  
-  moveRobot: function moveRobot(input) {
-    input.split("").forEach(move => {
+    //Using closure to create a function that change variables within a function
+function moveRobot(moves) {
+    moves.split("").forEach(move => {
        switch(move){
     case "U":
-      this.x++;
+      x++;
       break;
     case "D":
-      this.x--;
+      x--;
       break;
     case "L":
-      this.y--;
+      y--;
       break;
     case "R":
-      this.y++;
+      y++;
       break;
   }
     })
 }
+    moveRobot(moves)
+    return (x === 0 && y ===0)
 }
-    
-    robot.moveRobot(moves)
-    return (robot.x === 0 && robot.y ===0)
-      
-};
